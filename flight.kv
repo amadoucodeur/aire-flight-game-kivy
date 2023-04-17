@@ -1,0 +1,57 @@
+
+
+<Blanc>:
+    size: 40, 40
+    type: "blanc"
+    canvas:
+        Color:
+            rgba: 1,0,1,0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Projectile>:
+    source: './medias/projectiles/projectile1.png'
+    size: 40, 40
+    type: 'projectile'
+    pos: 200,400
+
+<Plane>:
+    source: './medias/faw1.png'
+    size: self.size[0], 60
+
+
+<Game>:
+    axe_a: self.center_x - 100
+    axe_b: self.center_x
+    axe_c: self.center_x + 100
+    plane: plane
+    canvas:
+        Line:
+            points: root.center_x - 150,0 , root.center_x - 150,root.top
+        Line:
+            points: root.center_x - 50,0 , root.center_x - 50,root.top
+        Line:
+            points: root.center_x + 50,0 , root.center_x + 50,root.top
+        Line:
+            points: root.center_x + 150,0 , root.center_x + 150,root.top
+
+    Plane:
+        type: 'plane'
+        id: plane
+        center_x: root.center_x
+        y: 10
+
+    Label:
+        type: 'label'
+        text: str(root.scor)
+        top: root.top - 10
+        x: root.x + 10
+        font_size: 100
+    Label:
+        type: 'label'
+        text: str(root.bscor)
+        top: root.top - 10
+        right: root.right - 10
+        font_size: 100
+        color: 1,0,0,1
